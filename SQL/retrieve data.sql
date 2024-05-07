@@ -19,4 +19,5 @@ select u.user_id, u.name,  count(r.request_id) as count_request from requests as
 
 
 ---5
-select b.book_id, b.book_title, b.author, ba.queue from books as b right join book_availability as ba on ba.book_id=b.book_id order by ba.queue desc 
+select ba.library_id, b.book_id, b.book_title, b.author, ba.queue 
+from books as b right join book_availability as ba on ba.book_id=b.book_id order by ba.queue desc
