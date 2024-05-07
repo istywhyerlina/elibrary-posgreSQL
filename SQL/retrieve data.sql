@@ -11,8 +11,7 @@ group by bo.book_title order by average_diff desc
 
 
 ---3
-select library_id, count(request_id) as count_request from requests  where request_status='Borrow' group by library_id order by count_request desc
-
+select l.library_id,l.library_name, count(r.request_id) as count_request from requests as r join libraries as l on l.library_id=r.library_id  where r.request_status='Borrow' group by l.library_id,l.library_name order by count_request desc
 
 ---4
 select u.user_id, u.name,  count(r.request_id) as count_request from requests as r left join users as u on r.user_id=u.user_id  where request_status='Borrow' group by u.user_id, u.name order by count_request desc
